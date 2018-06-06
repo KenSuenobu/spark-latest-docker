@@ -3,4 +3,4 @@
 # Script to deploy to Docker Container to hub.docker.com
 
 docker login --username=${DOCKER_USERNAME} --password=${DOCKER_PASSWORD}
-
+docker push ksuenobu/spark-latest
