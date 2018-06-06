@@ -18,10 +18,6 @@
 
 FROM centos:latest
 MAINTAINER ksuenobu@fastmail.com
-EXPOSE 8080/tcp
-EXPOSE 8081/tcp
-EXPORT 7077/tcp
-EXPORT 4040/tcp
-EXPORT 18080/tcp
 
-RUN wget https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz
+RUN wget https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz -o /tmp/spark-2.3.0.tgz && \
+    cd /opt && tar -xvzf /tmp/spark-2.3.0.tgz && rm -f /tmp/spark-2.3.0.tgz
