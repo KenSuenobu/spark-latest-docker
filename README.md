@@ -9,7 +9,8 @@ just Spark.
 ## TL;DR
 
 If you want to use the included scripts, just download the scripts in the
-[dist/scripts.tar.gz](dist/scripts.tar.gz) tarball, and you should be good to go.
+[dist/scripts.tar.gz](https://github.com/KenSuenobu/spark-latest-docker/blob/master/dist/scripts.tar.gz?raw=true)
+tarball, and you should be good to go.
 
 Start the script using `sh start-master.sh` and stop the docker container by
 using `docker kill` or use the included `sh stop-spark.sh` script.
