@@ -20,6 +20,7 @@ FROM ubuntu:16.04
 MAINTAINER ksuenobu@fastmail.com
 
 ENV PATH="${PATH}:/opt/spark:/opt/spark/bin:/opt/spark/sbin"
+ENV SPARK_NO_DAEMONIZE="true"
 
 RUN apt update && apt upgrade && apt install -y wget software-properties-common && \
     wget http://www-us.apache.org/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz -qO /tmp/spark-2.3.0.tgz && \
