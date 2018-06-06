@@ -9,8 +9,6 @@ jobs:
       - run:
           name: Build Spark Docker Image
           command: sh scripts/build.sh
-#      - run:
-#          name: Deploy Image to Docker Hub
-#          command: sh scripts/deploy.sh
-      - store_artifacts:
-          path: /tmp/spark-latest.tar.gz
+      - run:
+          name: Deploy Image to Docker Hub
+          command: sh scripts/deploy.sh
