@@ -16,9 +16,17 @@
 # This build is for the ksuenobu/spark-latest container, which is submitted
 # to hub.docker.com.
 
-FROM centos:latest
+FROM ubuntu:16.04
 MAINTAINER ksuenobu@fastmail.com
 
-RUN yum install -y wget tar && \
-    wget https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz -o /tmp/spark-2.3.0.tgz && \
-    cd /opt && tar -xvzf /tmp/spark-2.3.0.tgz && rm -f /tmp/spark-2.3.0.tgz
+ENV PATH="${PATH}:/opt/spark:/opt/spark/bin:/opt/spark/sbin"
+
+RUN apt update && apt upgrade && apt install -y wget software-properties-common && \
+    wget http://www-us.apache.org/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz -qO /tmp/spark-2.3.0.tgz && \
+    cd /opt && tar -xvzf /tmp/spark-2.3.0.tgz && rm -f /tmp/spark-2.3.0.tgz && \
+    mv /opt/spark-2.3.0* /opt/spark && \
+    add-apt-repository ppa:webupd8team/java && \
+    apt update && \
+    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+    apt install -y oracle-java8-installer && \
+    apt clean
