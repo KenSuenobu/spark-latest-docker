@@ -19,5 +19,6 @@
 FROM centos:latest
 MAINTAINER ksuenobu@fastmail.com
 
-RUN wget https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz -o /tmp/spark-2.3.0.tgz && \
+RUN yum install -y wget tar && \
+    wget https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz -o /tmp/spark-2.3.0.tgz && \
     cd /opt && tar -xvzf /tmp/spark-2.3.0.tgz && rm -f /tmp/spark-2.3.0.tgz
